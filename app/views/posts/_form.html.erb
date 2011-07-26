@@ -21,9 +21,13 @@
   </div>
   <div class="field">
     <%= f.label :post_type %><br />
-    <%= f.text_field :post_type %>
+   <%= f.select :post_type, options_for_select({ "Quote" => "quote", "Thoughts" => "thoughts"}) %>
   </div>
- <%= f.hidden_field :user_id, :value => @current_user.id %>
+  <div class="field">
+    <%= f.label :book %><br />
+    <%= collection_select(:post, :book_id, Book.all, "id", "title") %>
+  </div> 	
+ 	<%= f.hidden_field :user_id, :value => @current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>

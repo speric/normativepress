@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-
 	before_filter :require_user, :except => [:index, :show]
 
   # GET /books
