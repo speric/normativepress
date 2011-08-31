@@ -26,7 +26,8 @@
 			<div id="tagline">"...relating to an ideal standard or mode..."</div>
 			<div id="nav">
 		  	<% if current_user %>
-		    	<%= link_to "Edit Profile", edit_user_path(current_user.id)%>
+		  		<%= link_to "New Post", new_post_path %>&nbsp;-&nbsp;
+		    	<%= link_to "Edit Profile", edit_user_path(current_user.id)%>&nbsp;-&nbsp;
 		      <%= link_to "Logout", :logout%>
 		    <% else %>
 					<%= link_to "Login", :login %>
