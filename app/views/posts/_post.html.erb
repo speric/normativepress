@@ -1,0 +1,13 @@
+	<div id="post_<%= post.id %>" class="post">
+		<div class="quote">
+			<%= h post.content %>
+	  </div>
+	  <div id="metadata_<%= post.id %>" class="metadata">
+	  	<div class="book_meta"><%= link_to post.title, post_url(post.id) %> from <%= link_to post.book.title, book_url(post.book.id) %> by <%= post.book.author %> posted <%= time_ago_in_words(post.created_at) %> ago</div>
+	  </div>
+	  <% if @current_user %>
+	 	<div class="admin_options">
+	 		<%= link_to 'Show', post %>&nbsp;-&nbsp;<%= link_to 'Edit', edit_post_path(post) %>&nbsp;-&nbsp;<%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+	 	</div>
+	  <% end %>
+  </div>

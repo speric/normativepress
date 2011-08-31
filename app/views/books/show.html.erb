@@ -1,35 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div>
+	<div class="floater">
+		<a href="<%= @book.amazon_url %>"><img src="<%= @book.thumbnail %>" border="0"/></a>
+	</div>
+	<div class="floater">
+		<span id="book-title"><a href="<%= @book.amazon_url %>"><%= @book.title %></a></span>
+		<p>by <%= @book.author %></p>
+	</div>
+	<div class="clearer"></div>
+</div>
 
-<p>
-  <b>Title:</b>
-  <%= @book.title %>
-</p>
+<% if @current_user %>
+	<%= link_to 'Edit', edit_book_path(@book) %>&nbsp;-&nbsp;<%= link_to 'Back', books_path %>
+<% end %>
 
-<p>
-  <b>Author:</b>
-  <%= @book.author %>
-</p>
+<div id="book-posts">
+	<p><b>Posts from <%= h @book.title %></b></p>
 
-<p>
-  <b>Amazon asin:</b>
-  <%= @book.amazon_asin %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @book.status %>
-</p>
-
-<p>
-  <b>Thumbnail:</b>
-  <%= @book.thumbnail %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @book.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+	<% @book.posts.each do |p| %>
+		<%= render p %>
+	<% end %>
+</div>
