@@ -11,6 +11,7 @@
   	#container{}
   	#inner_container{width:960px;}
   	#title{font-size:36px;font-weight:bold;margin-bottom:14px;}
+  	#title a, a:hover, a:visited, a:active{color: #36393D;text-decoration:none;background-color:#EEEEEE;} 
   	#book-title{font-size: 24px; font-weight:bold;}
   	#tagline{font-style:italic;}
   	#nav{width:100%; text-align:right;}
@@ -21,12 +22,13 @@
  		.floater{float:left; padding: 0px 10px;}
  		.clearer{clear:both;}
  		#book-posts{padding-top:15px;}
+ 		#content{padding-top:15px;}
   </style>
 </head>
 <body>
 	<div id="container" align="center">
 		<div id="inner_container" align="justify">
-			<div id="title">Normative Press</div>
+			<div id="title"><%= link_to "Normative Press", root_path %></div>
 			<div id="tagline">"...relating to an ideal standard or mode..."</div>
 			<div id="nav">
 		  	<% if current_user %>
