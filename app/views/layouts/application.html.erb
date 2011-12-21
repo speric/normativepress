@@ -30,19 +30,32 @@
 	div.pagination span.disabled {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #EEE; color: #DDD;}
 	#footer{padding-top:15px;}
   </style>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1120529-27']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </head>
 <body>
 	<div id="container" align="center">
 		<div id="inner_container" align="justify">
 			<div id="title"><%= link_to "Normative Press", root_path %></div>
-			<div id="tagline">"...relating to an ideal standard or mode..."</div>
+			<div id="tagline">A hand-curated collection of quotes.</div>
 			<div id="nav">
 		  	<% if current_user %>
 		  		<%= link_to "New Post", new_post_path %>&nbsp;-&nbsp;
 		    	<%= link_to "Edit Profile", edit_user_path(current_user.id)%>&nbsp;-&nbsp;
 		      <%= link_to "Logout", :logout%>
 		    <% else %>
-					<%= link_to "Login", :login %>
+				<%= link_to "Login", :login %>
 		    <% end %>
 		  </div>
 		
