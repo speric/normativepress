@@ -39,7 +39,7 @@ GEM
       abstract (>= 1.0.0)
     i18n (0.5.0)
     json (1.6.3)
-    kindle-highlights (0.0.4)
+    kindle-highlights (0.0.5)
       mechanize (>= 2.0.1)
       ruby-aaws (>= 0.7.0)
     mail (2.2.19)
@@ -107,4 +107,4 @@ DEPENDENCIES
   kindle-highlights
   mysql
   rails (= 3.0.9)
-  rake (= 0.8.7)
+  rake (= 0.9.2)
