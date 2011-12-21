@@ -6,3 +6,5 @@
 <% if @current_user %>
 	<%= link_to 'New Post', new_post_path %>
 <% end %>
+
+<center><div class="pagination"><%= will_paginate @items %></div></center>

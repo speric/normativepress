@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
 	belongs_to :book
 	before_save	:make_slug
+
+  cattr_reader :per_page
+  @@per_page = 25
 	
 	def make_slug
 		self.slug = urlify(self.title)

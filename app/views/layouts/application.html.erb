@@ -8,7 +8,7 @@
   <style>
   	body{background-color:#EEEEEE; color: #36393D; font-family:Georgia, serif;margin-top:25px; font-size: 14px;}
   	a, a:hover, a:visited, a:active{color:#4096EE;text-decoration:none;}
-  	#container{}
+  	#container{padding-bottom:25px;}
   	#inner_container{width:960px;}
   	#title{font-size:36px;font-weight:bold;margin-bottom:14px;}
   	#title a, a:hover, a:visited, a:active{color: #36393D;text-decoration:none;background-color:#EEEEEE;} 
@@ -18,11 +18,17 @@
   	.post{padding-bottom: 40px;}
   	.quote{margin-bottom: 12px; font-size:16px;border-left:1px solid #DBDBDB;padding-left: 15px;}
   	.book_meta{font-size:13px;}
- 		.admin_options{font-size:10px;}
- 		.floater{float:left; padding: 0px 10px;}
- 		.clearer{clear:both;}
- 		#book-posts{padding-top:15px;}
- 		#content{padding-top:15px;}
+ 	.admin_options{font-size:10px;}
+ 	.floater{float:left; padding: 0px 10px;}
+ 	.clearer{clear:both;}
+ 	#book-posts{padding-top:15px;}
+ 	#content{padding-top:15px;}
+ 	div.pagination{padding: 3px; margin: 3px;font-family:Arial;}
+	div.pagination a {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #333; text-decoration: none; /* no underline */ color: #333;}
+	div.pagination a:hover, div.pagination a:active {border: 1px solid #828282; color: #000;}
+	div.pagination span.current {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #333; font-weight: bold; background-color: #333; color: #FFF;}
+	div.pagination span.disabled {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #EEE; color: #DDD;}
+	#footer{padding-top:15px;}
   </style>
 </head>
 <body>
@@ -42,6 +48,9 @@
 		
 			<div id="content">
 				<%= yield %>
+			</div>
+			<div align="center" id="footer">
+				<a href="https://github.com/speric/normativepress">Normative Press</a> is produced by <a href="http://twitter.com/ericfarkas">speric</a>
 			</div>
 		</div>
 	</div>
