@@ -13,9 +13,9 @@
   	#title{font-size:36px;font-weight:bold;margin-bottom:14px;}
   	#title a, a:hover, a:visited, a:active{color: #36393D;text-decoration:none;background-color:#EEEEEE;} 
   	#book-title{font-size: 24px; font-weight:bold;}
-  	#tagline{font-style:italic;}
+  	#tagline{font-style:italic;padding-bottom:25px;}
   	#nav{width:100%; text-align:right;}
-  	.post{padding-bottom: 40px;}
+  	.post{padding-bottom: 65px;}
   	.quote{margin-bottom: 12px; font-size:16px;border-left:1px solid #DBDBDB;padding-left: 15px;}
   	.book_meta{font-size:13px;}
  	.admin_options{font-size:10px;}
@@ -52,10 +52,8 @@
 			<div id="nav">
 		  	<% if current_user %>
 		  		<%= link_to "New Post", new_post_path %>&nbsp;-&nbsp;
-		    	<%= link_to "Edit Profile", edit_user_path(current_user.id)%>&nbsp;-&nbsp;
-		      <%= link_to "Logout", :logout%>
-		    <% else %>
-				<%= link_to "Login", :login %>
+		    	<%= link_to "Edit Profile", edit_user_path(current_user.id) %>&nbsp;-&nbsp;
+		      	<%= link_to "Logout", :logout %>
 		    <% end %>
 		  </div>
 		

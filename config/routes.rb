@@ -4,7 +4,8 @@ Normativepress::Application.routes.draw do
   resources :users, :user_sessions, :books
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
-  match 'books/:id/:slug' => 'books#show', :as => :slug
+  match 'books/:id/:slug' => 'books#show', :as => :book_slug
+  match 'posts/:id/:slug' => 'posts#show', :as => :post_slug
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
