@@ -1,7 +1,8 @@
 class Book < ActiveRecord::Base
 	has_many :posts
+	before_save :make_slug
 
-	def before_save
+	def make_slug
 		self.slug = urlify(self.title)
 	end
 	

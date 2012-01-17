@@ -15,7 +15,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.xml
   def show
-    @book = Book.find(params[:id], :include => :posts)
+    @book = Book.where({:id => params[:id], :slug => params[:slug]}, :include => :posts).first
 
     respond_to do |format|
       format.html # show.html.erb
