@@ -5,8 +5,12 @@ class Post < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 25
 	
-	def make_slug
-		self.slug = urlify(self.title)
+	def before_save
+    if self.title.nil?
+      self.slug = urlify(self.content[0..25])
+    else
+		  self.slug = urlify(self.title)
+    end
 	end
 
   def urlify(string)
