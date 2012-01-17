@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.all
+    @books = Book.order("created_at DESC").includes(:posts)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +46,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to(@book, :notice => 'Book was successfully created.') }
+        format.html { redirect_to(book_slug_url(@book, @book.slug), :notice => 'Book was successfully created.') }
         format.xml  { render :xml => @book, :status => :created, :location => @book }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        format.html { redirect_to(@book, :notice => 'Book was successfully updated.') }
+        format.html { redirect_to(book_slug_url(@book, @book.slug), :notice => 'Book was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

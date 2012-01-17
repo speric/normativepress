@@ -1,33 +1,21 @@
-<h1>Listing books</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Amazon asin</th>
-    <th>Status</th>
-    <th>Thumbnail</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>All Books</h1>
 
 <% @books.each do |book| %>
-  <tr>
-    <td><%= book.title %></td>
-    <td><%= book.author %></td>
-    <td><%= book.amazon_asin %></td>
-    <td><%= book.status %></td>
-    <td><%= book.thumbnail %></td>
-    <td><%= book.user_id %></td>
-    <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <div style="padding-bottom:8px;">
+        <%= h link_to book.title, book_slug_url(book, book.slug) %> by <%= h book.author %> (<%= book.posts.size %> highlights
+        <% if book.posts.size > 0 %>
+        , latest <%= time_ago_in_words(book.posts.last.created_at) %> ago)
+        <% else %>
+        )
+        <% end %>
+    </div>
+    <% if @current_user %>
+        <div class="admin_options">
+            <%= link_to 'Edit', edit_book_path(book) %>&nbsp;-&nbsp;<%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+        </div>
+    <% end %>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Book', new_book_path %>
+<% if @current_user %>
+    <%= link_to 'New Book', new_book_path %>
+<% end %>
