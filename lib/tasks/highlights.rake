@@ -13,4 +13,15 @@ namespace :highlights do
       end
     end
   end
+
+  desc "Generate URL slugs for existing items"
+  task(:slugs => :environment) do
+    Post.all.each do |post|
+      post.save
+    end
+
+    Book.all.each do |book|
+      book.save
+    end
+  end
 end

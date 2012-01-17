@@ -1,13 +1,12 @@
 class Post < ActiveRecord::Base
 	belongs_to :book
-	before_save	:make_slug
 
   cattr_reader :per_page
   @@per_page = 25
 	
 	def before_save
     if self.title.nil?
-      self.slug = urlify(self.content[0..25])
+      self.slug = urlify(self.content[0..45])
     else
 		  self.slug = urlify(self.title)
     end
