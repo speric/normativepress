@@ -60,7 +60,7 @@ a, a:hover, a:visited, a:active{color:#4096EE;text-decoration:none;}
 #book-title{font-size: 24px; font-weight:bold;}
 #tagline{font-style:italic;padding-bottom:25px;}
 #nav{width:100%; text-align:right;}
-.post{padding-bottom: 65px;}
+.post{padding-bottom: 45px;}
 .quote{margin-bottom: 12px; font-size:16px;border-left:1px solid #DBDBDB;padding-left: 15px;}
 .book_meta{font-size:13px;}
 .admin_options{font-size:10px;}
