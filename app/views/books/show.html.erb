@@ -1,12 +1,6 @@
 <div>
-	<div class="floater">
-		<a href="<%= @book.amazon_url %>"><img src="<%= @book.thumbnail %>" border="0"/></a>
-	</div>
-	<div class="floater">
-		<span id="book-title"><a href="<%= @book.amazon_url %>"><%= @book.title %></a></span>
-		<p>by <%= @book.author %></p>
-	</div>
-	<div class="clearer"></div>
+  <span id="book-title"><a href="<%= @book.amazon_url %>"><%= @book.title %></a></span>
+	<p>by <%= @book.author %></p>
 </div>
 
 <% if @current_user %>
