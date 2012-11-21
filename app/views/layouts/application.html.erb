@@ -6,74 +6,71 @@
   <%= csrf_meta_tag %>
 
   <% if @post and !@post.new_record? %>
-  	<% if @post.title.blank? %>
-  		<title>Imported Kindle Highlight From <%= h @post.book.title %> | Normative Press</title>
-  		<meta property="og:title" content="Imported Kindle Highlight From <%= h @post.book.title %> | Normative Press"/>
-  	<% else %>
-  		<title><%= h @post.title %> From <%= h @post.book.title %> | Normative Press</title>
-  		<meta property="og:title" content="<%= h @post.title %> From <%= h @post.book.title %> | Normative Press"/>
-  	<% end %>
+    <% if @post.title.blank? %>
+      <title>Imported Kindle Highlight From <%= h @post.book.title %> | Normative Press</title>
+      <meta property="og:title" content="Imported Kindle Highlight From <%= h @post.book.title %> | Normative Press"/>
+    <% else %>
+      <title><%= h @post.title %> From <%= h @post.book.title %> | Normative Press</title>
+      <meta property="og:title" content="<%= h @post.title %> From <%= h @post.book.title %> | Normative Press"/>
+    <% end %>
   <% end %>
 
   <% if @book %>
-  	<title>Selected Quotes From <%= h @book.title %> | Normative Press</title>
-  	<meta property="og:title" content="Selected Quotes From <%= h @book.title %> | Normative Press"/>
+    <title>Selected Quotes From <%= h @book.title %> | Normative Press</title>
+    <meta property="og:title" content="Selected Quotes From <%= h @book.title %> | Normative Press"/>
   <% end %>
 
   <% unless @book or @post %>
-  	<title>Normative Press</title>
-  	<meta property="og:title" content="Normative Press"/>
+    <title>Normative Press</title>
+    <meta property="og:title" content="Normative Press"/>
   <% end %>
   <meta property="og:type" content="blog"/>
 
   <% if @post %>
-  	<meta property="og:description" content="<%= h @post.content %>"/>
+    <meta property="og:description" content="<%= h @post.content %>"/>
   <% end %>
 
   <% if @book %>
-  	<meta property="og:description" content="All quotes from <%=h @book.title %>"/>
+    <meta property="og:description" content="All quotes from <%=h @book.title %>"/>
   <% end %>
 
   <% unless @book or @post %>
-	<meta property="og:description" content="A hand-curated collection of quotes from books I am reading.  The posting of a quote does not imply it's endorsement."/>
+    <meta property="og:description" content="A hand-curated collection of quotes from books I am reading.  The posting of a quote does not imply it's endorsement."/>
   <% end %>
   <meta property="og:site_name" content="Normative Press"/>
   <meta property="fb:admins" content="100002646612433"/>
-
-  <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-1120529-27']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 </head>
 <body>
-	<div id="container" align="center">
-		<div id="inner_container" align="justify">
-			<div id="title"><%= link_to "Normative Press", root_path %></div>
-			<div id="tagline">A hand-curated collection of quotes from books I am reading. The posting of a quote does not imply it's endorsement.</div>
-			<div id="nav">
-		  	<% if current_user %>
-		  		<%= link_to "New Post", new_post_path %>&nbsp;-&nbsp;
-		    	<%= link_to "Edit Profile", edit_user_path(current_user.id) %>&nbsp;-&nbsp;
-		      	<%= link_to "Logout", :logout %>
-		    <% end %>
-		  </div>
-		  <p><%= link_to "See All Books", books_path %></p>
-			<div id="content">
-				<%= yield %>
-			</div>
-			<div align="center" id="footer">
-				<a href="https://github.com/speric/normativepress">Normative Press</a> is produced by <a href="http://twitter.com/ericfarkas">speric</a>
-			</div>
-		</div>
-	</div>
+  <div id="container" align="center">
+    <div id="inner_container" align="justify">
+      <div id="title"><%= link_to "Normative Press", root_path %></div>
+      <div id="tagline">A hand-curated collection of quotes from <%= link_to "books", books_path %> I am reading. The posting of a quote does not imply it's endorsement.</div>
+      <div id="nav">
+        <% if current_user %>
+	  <%= link_to "New Post", new_post_path %>&nbsp;-&nbsp;
+	  <%= link_to "Edit Profile", edit_user_path(current_user.id) %>&nbsp;-&nbsp;
+	  <%= link_to "Logout", :logout %>
+        <% end %>
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div>
+      <div align="center" id="footer">
+        <a href="https://github.com/speric/normativepress">Normative Press</a> is produced by <a href="http://twitter.com/ericfarkas">speric</a>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1120529-27']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </body>
 </html>
