@@ -1,16 +1,14 @@
 <div>
   <span id="book-title"><a href="<%= @book.amazon_url %>"><%= @book.title %></a></span>
-	<p>by <%= @book.author %></p>
+  <p>by <%= @book.author %></p>
 </div>
 
 <% if @current_user %>
-	<%= link_to 'Edit', edit_book_path(@book) %>&nbsp;-&nbsp;<%= link_to 'Back', books_path %>
+  <%= link_to 'Edit', edit_book_path(@book) %>&nbsp;-&nbsp;<%= link_to 'Back', books_path %>
 <% end %>
 
 <div id="book-posts">
-	<p><b>Posts from <%= h @book.title %></b></p>
-
-	<% @book.posts.each do |p| %>
-		<%= render p %>
-	<% end %>
+  <% @book.posts.each do |p| %>
+    <%= render p %>
+  <% end %>
 </div>
