@@ -1,14 +1,14 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '3.2.11'
 gem 'kindle-highlights', '0.0.6'
 gem 'rake', '0.9.2'
 gem 'will_paginate'
-
+gem 'prototype-rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql'
+gem 'mysql2'
 gem 'authlogic'
 
 # Use unicorn as the web server
