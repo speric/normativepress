@@ -1,3 +1,1 @@
-AMAZON = YAML.load_file("#{RAILS_ROOT}/config/amazon.yml")
-
-require 'kindle_highlights'
+AMAZON = YAML.load_file("#{Rails.root}/config/amazon.yml")
