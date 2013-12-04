@@ -1,6 +1,6 @@
 	<div id="post_<%= post.id %>" class="post">
 		<div class="quote">
-			<%= h post.content %>
+			<%= h post.content.html_safe %>
 	  </div>
 	  <div id="metadata_<%= post.id %>" class="metadata">
 	  	<div class="book_meta">

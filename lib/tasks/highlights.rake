@@ -7,6 +7,7 @@ namespace :highlights do
     kindle = KindleHighlight.new(AMAZON['email'], AMAZON['password'])
     kindle.highlights.each do |highlight|
       book = Book.find_by_amazon_asin(highlight.asin)
+      puts "ASIN=#{highlight.asin}"
       unless book.nil? or Post.exists?(["annotation_id = ?", highlight.annotation_id])
         Post.create(:content => highlight.content,
                     :post_type => "quote",
